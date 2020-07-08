@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion 29
@@ -24,4 +25,26 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.1.0'
+}
+
+uploadArchives {
+    apply plugin: 'maven'
+    repositories.mavenDeployer {
+        def deployPath = file("../MavenRepository")
+        repository(url: "file://${deployPath.absolutePath}")
+        pom.project {
+            groupId 'tech.yojigen'
+            artifactId 'utils'
+            version '0.0.1'
+        }
+    }
+}
+
+// 源代码一起打包
+task androidSourcesJar(type: Jar) {
+    classifier 'sources'
+    from android.sourceSets.main.java.sourceFiles
+}
+artifacts {
+    archives androidSourcesJar
 }

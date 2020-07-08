@@ -1,5 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="tech.yojigen.utils">
+    package="tech.yojigen.util">
 
-    /
+    <application>
+        <provider
+            android:name="tech.yojigen.utils.init.YUtilInitProvider"
+            android:authorities="${applicationId}.YUtilInitProvider"
+            android:exported="false" />
+    </application>
 </manifest>
