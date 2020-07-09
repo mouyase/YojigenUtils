@@ -30,7 +30,7 @@ dependencies {
 uploadArchives {
     apply plugin: 'maven'
     repositories.mavenDeployer {
-        def deployPath = file("../MavenRepository")
+        def deployPath = file("../../")
         def buildTime = new Date().format("yyyyMMddHHmm", TimeZone.getTimeZone("GMT+08:00"))
         repository(url: "file://${deployPath.absolutePath}")
         pom.project {
