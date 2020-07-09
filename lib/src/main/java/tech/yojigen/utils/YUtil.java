@@ -8,7 +8,6 @@ public class YUtil {
 
     public static void init(Context context) {
         mApplicationContext = context.getApplicationContext();
-
         Log.d("YUtil", " \n" +
                 "                                                                                \n" +
                 "YYYYYYY       YYYYYYYUUUUUUUU     UUUUUUUU        tttt            iiii  lllllll \n" +
